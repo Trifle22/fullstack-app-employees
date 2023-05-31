@@ -6,12 +6,12 @@ import 'module-alias/register';
 import { config } from 'dotenv';
 config();
 
-import app from '@/app';
 import Debug from 'debug';
-import http from 'http';
+import { bootstrapLogger } from "../src/utils/loggers";
+import app from "../src/app";
+import * as http from "http";
 
 const debug = Debug('fullstack-app-employees:server');
-import { bootstrapLogger } from '@/utils/loggers';
 bootstrapLogger();
 
 /**

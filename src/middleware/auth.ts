@@ -23,9 +23,13 @@ export const auth = async (req: CustomRequest, res: express.Response, next: () =
         }
       })
 
-      req.user = user || {};
+      if (user) {
+        req.user = user;
 
-      return next();
+        return next();
+      }
+
+
     }
   } catch (err) {
     res.status(401).json({message: 'Не авторизован'})

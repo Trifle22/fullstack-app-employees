@@ -16,5 +16,5 @@ export interface User {
   email:    String
   password: String
   name:     String
-  createdEmployee: Employee[]
+  createdEmployee?: Employee[]
 }

@@ -22,9 +22,9 @@ export const login = async (_req: express.Request, res: express.Response) =>{
 
   if (isPasswordCorrect && user && secret) {
     return res.status(200).json({
-      id: user.id, 
-      email: user.email, 
-      name: user.name,       
+      id: user.id,
+      email: user.email,
+      name: user.name,
       token: jwt.sign({id: user.id}, secret, { expiresIn: '30d' })
   })
   }
@@ -34,12 +34,11 @@ export const login = async (_req: express.Request, res: express.Response) =>{
 
 // @route POST api/user/register
 export const register = async (_req: express.Request, res: express.Response) => {
-  const { email, password, name } = _req.body;  
+  const { email, password, name } = _req.body;
 
   if (!email || !password || !name) {
     return res.status(400).json({message: "Пожалуйста, заполните обязательные поля"})
   }
-
 
   const registeredUser = await prisma.user.findFirst({
     where: {
@@ -66,7 +65,7 @@ export const register = async (_req: express.Request, res: express.Response) => 
 
   if (user && secret) {
     console.log('user && secret');
-    
+
     return res.status(201).json({
       id: user.id,
       email: user.email,

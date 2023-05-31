@@ -6,6 +6,8 @@ import dotenv from 'dotenv';
 
 import usersRouter from './routes/users';
 
+dotenv.config();
+
 class App {
   public app: express.Application;
 
