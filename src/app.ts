@@ -5,6 +5,7 @@ import logger from 'morgan';
 import dotenv from 'dotenv';
 
 import usersRouter from './routes/users';
+import employeesRouter from './routes/employees';
 
 dotenv.config();
 
@@ -27,6 +28,7 @@ class App {
 
   private routerSetup() {
     this.app.use('/api/user', usersRouter);
+    this.app.use('/api/employees', employeesRouter);
   }
 
 }
