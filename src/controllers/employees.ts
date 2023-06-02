@@ -8,11 +8,7 @@ const prisma = new PrismaClient();
 // @access private
 export const getAll = async (_req: CustomRequest, res: express.Response) => {
   try {
-    const employees = await prisma.employee.findMany({
-      where: {
-        userId: _req.user?.id as string,
-      }
-    });
+    const employees = await prisma.employee.findMany();
 
     res.status(200).json(employees);
   } catch (err) {
